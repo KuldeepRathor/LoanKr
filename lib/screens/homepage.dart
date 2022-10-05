@@ -2,6 +2,10 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+
+
+final Uri _meetlink = Uri.parse('https://meet.google.com/seg-qafu-yps');
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
@@ -11,17 +15,20 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
+  TextEditingController nameController = TextEditingController();
+  TextEditingController mobileController = TextEditingController();
+  TextEditingController emailController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return SafeArea(
       child: Scaffold(
-        floatingActionButton: FloatingActionButton(onPressed: (){},backgroundColor: CupertinoColors.systemPink,child: Icon(Icons.arrow_forward_ios)),
         drawer: Drawer(
           backgroundColor: CupertinoColors.systemPink,
           child: Column(
             children: [
-              Text('DRAWER',
+              Text(
+                'DRAWER',
                 style: TextStyle(color: CupertinoColors.white, fontSize: 30),
               ),
             ],
@@ -42,6 +49,7 @@ class _HomepageState extends State<Homepage> {
             child: Column(
               children: [
                 TextFormField(
+                  controller: nameController,
                   cursorColor: CupertinoColors.systemPink,
                   autofillHints: Characters(AutofillHints.name),
                   decoration: InputDecoration(
@@ -61,6 +69,7 @@ class _HomepageState extends State<Homepage> {
                   height: 30,
                 ),
                 TextFormField(
+                  controller: mobileController,
                   cursorColor: CupertinoColors.systemPink,
                   autofillHints: Characters(AutofillHints.telephoneNumber),
                   decoration: InputDecoration(
@@ -80,6 +89,7 @@ class _HomepageState extends State<Homepage> {
                   height: 30,
                 ),
                 TextFormField(
+                  controller: emailController,
                   cursorColor: CupertinoColors.systemPink,
                   autofillHints: Characters(AutofillHints.name),
                   decoration: InputDecoration(
@@ -146,11 +156,30 @@ class _HomepageState extends State<Homepage> {
                     ),
                   ),
                 ),
+
+                ElevatedButton(onPressed: _launchUrl, child: Text('Meet'),),
               ],
             ),
           ),
         ),
+        floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              print(nameController.text);
+              print(mobileController.text);
+              print(emailController.text);
+            },
+
+
+            child: Icon(Icons.add),
+            backgroundColor: CupertinoColors.systemPink,
+            )
       ),
     );
+  }
+}
+
+Future<void> _launchUrl() async {
+  if (!await launchUrl(_meetlink)) {
+    throw 'Could not launch $_meetlink';
   }
 }

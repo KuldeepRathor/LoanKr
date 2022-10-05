@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "684722146559",
+    "project_id": "loankr",
+    "storage_bucket": "loankr.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:684722146559:android:d1e0e216f633219c4150ca",
+        "android_client_info": {
+          "package_name": "com.example.loankr"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "684722146559-fuktku7a2a82f96ris58mn3oi348bttb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.loankr",
+            "certificate_hash": "0801cd7bc39dd0887100b011b4b010c15bdfbd6c"
+          }
+        },
+        {
+          "client_id": "684722146559-nuu8eqbeqh34200ptlihpigbteidsain.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDtsAVGx69gYZWopaqQYn9aG7HM39BxLtE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "684722146559-nuu8eqbeqh34200ptlihpigbteidsain.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
